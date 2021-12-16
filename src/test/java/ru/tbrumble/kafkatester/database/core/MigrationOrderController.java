@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class for checking migration order
+ */
 @Service
 public class MigrationOrderController {
     @Autowired
@@ -14,6 +17,11 @@ public class MigrationOrderController {
 
     private final Map<Integer, String> mapOrdered = new HashMap<>();
 
+    /**
+     * Put values to ordered map
+     * @param key order in flyway_schema_history
+     * @param value script name
+     */
     public void putValues(Integer key, String value) {
         if (mapOrdered.containsKey(key)) {
             throw new MigrationExceptions(
@@ -24,10 +32,17 @@ public class MigrationOrderController {
         }
     }
 
+    /**
+     * Clear ordered map values
+     */
     public void clearOrderedMap() {
         mapOrdered.clear();
     }
 
+    /**
+     * check order after migration and success result in flyway_schema_repo
+     * @return boolean
+     */
     public boolean checkOrderWithDatabase() {
         List<FlywaySchemaHistory> flywaySchemaHistories = flywaySchemaHistoryDto.findAll();
         if (((mapOrdered.size() > 0) && (flywaySchemaHistories.size() <= 0)) || ((mapOrdered.size() <= 0) && (flywaySchemaHistories.size() > 0))) {

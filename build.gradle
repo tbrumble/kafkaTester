@@ -8,6 +8,7 @@ group = 'ru.tbrumble'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -32,6 +33,10 @@ dependencies {
     testImplementation 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
+    implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.8.0'
+
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.2.0')
 }
 
 test {
