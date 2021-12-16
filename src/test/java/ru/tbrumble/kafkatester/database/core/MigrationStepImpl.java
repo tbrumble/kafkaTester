@@ -12,7 +12,7 @@ public class MigrationStepImpl implements MigrationStep {
     MigrationCheckTool migrationCheckTool;
 
     /**
-     * @(inheritDoc)
+     * {@inheritDoc}
      */
     public boolean checkMigrationOrder(Map<Integer, String> mapOrdered) {
         migrationCheckTool.cleanOrder();
@@ -23,7 +23,7 @@ public class MigrationStepImpl implements MigrationStep {
     }
 
     /**
-     * @(inheritDoc)
+     * {@inheritDoc}
      */
     public boolean checkMigrationScripts(List<String> mapScripts) {
         migrationCheckTool.cleanOrder();
@@ -38,7 +38,7 @@ public class MigrationStepImpl implements MigrationStep {
     }
 
     /**
-     * @(inheritDoc)
+     * {@inheritDoc}
      */
     public boolean checkUndoScripts(Map<String, String> undoScripts, String checkQuery) {
         migrationCheckTool.cleanOrder();
