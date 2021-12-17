@@ -6,6 +6,15 @@ public class TestClass {
 
     @Deprecated
     public Integer getInt() {
+        int a = 1;
+        switch (a) {
+            case 1:
+
+                break;
+            default:
+
+                break;
+        }
         return 12;
     }
 
