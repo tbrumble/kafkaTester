@@ -53,15 +53,15 @@ test {
     useJUnitPlatform()
 }
 
-jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
-    reports {
-        xml.enabled true
-        html.enabled false
-    }
-}
-
-check.dependsOn jacocoTestReport
+//jacocoTestReport {
+//    dependsOn test // tests are required to run before generating the report
+//    reports {
+//        xml.enabled true
+//        html.enabled false
+//    }
+//}
+//
+//check.dependsOn jacocoTestReport
 
 
 task codeCoverageReport(type: JacocoReport) {
