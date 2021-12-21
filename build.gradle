@@ -28,7 +28,6 @@ dependencies {
     implementation 'org.springframework.kafka:spring-kafka'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.6.1'
 
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
@@ -36,8 +35,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
     implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.8.0'
-
-    compileOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 sonarqube {
