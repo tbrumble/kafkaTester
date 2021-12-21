@@ -40,7 +40,7 @@ public interface MigrationStep {
     /**
      * Query script
      * @param sql sql script
-     * @return boolean result Count of updated rows
+     * @return boolean result if row was updated
      */
     boolean queryScript(String sql);
 }

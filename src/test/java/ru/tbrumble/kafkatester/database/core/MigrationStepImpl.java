@@ -82,8 +82,8 @@ public class MigrationStepImpl implements MigrationStep {
      */
     @Override
     public boolean queryScript(String sql) {
-        Integer resultCount = migrationCheckTool.getJdbcTemplate().queryForObject(sql, Integer.class);
-        return ((resultCount != 0) && (resultCount != null));
+        List<Integer> list = migrationCheckTool.getJdbcTemplate().queryForList(sql, Integer.class);
+        return ((list != null) && (list.size() > 0));
     }
 
 }
