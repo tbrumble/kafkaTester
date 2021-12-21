@@ -36,4 +36,11 @@ public interface MigrationStep {
      * @return result
      */
     boolean checkRepeatableScripts(List<String> scripts);
+
+    /**
+     * Query script
+     * @param sql sql script
+     * @return boolean result Count of updated rows
+     */
+    boolean queryScript(String sql);
 }

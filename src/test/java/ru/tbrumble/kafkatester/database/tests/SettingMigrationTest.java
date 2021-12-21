@@ -1,5 +1,6 @@
 package ru.tbrumble.kafkatester.database.tests;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -35,6 +36,9 @@ class SettingMigrationTest extends MigrationStepImpl {
 
     private final String CHECK_SETTING_PARAM_1 = "SELECT count(*) from APPDATA.SETTING WHERE NAME = 'version' AND VALUE = '00.001';";
     private final String CHECK_SETTING_PARAM_2 = "SELECT count(*) from APPDATA.SETTING WHERE NAME = 'version_name' AND VALUE = 'Gundabad bread';";
+    private final String ADD_REPEATABLE_DATA = "INSERT INTO APPDATA.SETTING(name, value) VALUES\n" +
+            "    ('version', '00.001'),\n" +
+            "    ('version_name', 'Gundabad bread') returning id ;";
 
     @Test
     void testOrder() {
@@ -53,10 +57,11 @@ class SettingMigrationTest extends MigrationStepImpl {
     }
 
     @Test
-    void testUndoScript() {
+    void testUndoRedoScript() {
         Map<String, String> mapScripts = new HashMap<>();
         mapScripts.put(UNDO_SCRIPT, REDO_SCRIPT);
         Assert.isTrue(checkUndoScripts(mapScripts, CHECK_STRING), "Undo/redo scripts passed");
+        Assert.isTrue(queryScript(ADD_REPEATABLE_DATA), "Repeatable data is ok");
     }
 
     @Test
