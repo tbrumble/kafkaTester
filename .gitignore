@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Mac OSX Finder files.
+**/.DS_Store
+.DS_Store
+
+kafka-tester-ui/src/node_modules/
+/kafka-tester-ui/src/.angular/
