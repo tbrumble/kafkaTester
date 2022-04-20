@@ -28,4 +28,19 @@ public interface MigrationStep {
      * @return result
      */
     boolean checkUndoScripts(Map<String, String> undoScripts, String checkQuery);
+
+
+    /**
+     * Check data in tables after repeatable migration
+     * @param scripts List of check query. For example: select count(*) from ... where data is ...
+     * @return result
+     */
+    boolean checkRepeatableScripts(List<String> scripts);
+
+    /**
+     * Query script
+     * @param sql sql script
+     * @return boolean result if row was updated
+     */
+    boolean queryScript(String sql);
 }
